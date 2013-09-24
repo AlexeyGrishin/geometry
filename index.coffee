@@ -12,7 +12,7 @@ $ ->
   rhombusToCircle = ->
     transitionBetween rhombus, circle, STEPS
   rhombusToTriangleToCircle = ->
-    firstSteps = Math.floor(STEPS / 2)
+    firstSteps = Math.floor(STEPS / 2) + 1
     secondSteps = STEPS - firstSteps + 1
     (transitionBetween rhombus, triangle, firstSteps).concat(
       (transitionBetween triangle, circle, secondSteps).slice(1)
@@ -53,6 +53,8 @@ initAnimation = (drawStep, stepsAmount, onStep) ->
         @draw()
         if @currentStep != @targetStep
           @currentMotionTo = setTimeout nextStep, DELAY_ON_SCROLL
+        else
+          console.log @currentStep
       nextStep()
 
     move: (forward) ->

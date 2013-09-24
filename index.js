@@ -20,7 +20,7 @@ $(function() {
   };
   rhombusToTriangleToCircle = function() {
     var firstSteps, secondSteps;
-    firstSteps = Math.floor(STEPS / 2);
+    firstSteps = Math.floor(STEPS / 2) + 1;
     secondSteps = STEPS - firstSteps + 1;
     return (transitionBetween(rhombus, triangle, firstSteps)).concat((transitionBetween(triangle, circle, secondSteps)).slice(1));
   };
@@ -62,6 +62,8 @@ initAnimation = function(drawStep, stepsAmount, onStep) {
         _this.draw();
         if (_this.currentStep !== _this.targetStep) {
           return _this.currentMotionTo = setTimeout(nextStep, DELAY_ON_SCROLL);
+        } else {
+          return console.log(_this.currentStep);
         }
       };
       return nextStep();
