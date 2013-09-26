@@ -59,7 +59,7 @@ generateCirclePoints = (r, amountInQuarter) ->
   angles = [TOP, RIGHT, BOTTOM, LEFT, TOP + 2*Math.PI]
   for angle, index in angles.slice(0, 4)
     points.push angleToPoint(r, angle)
-    points = points.concat (numbersBetween angle, angles[index+1], amountInQuarter).map(angleToPoint.bind(null, r))
+    points = points.concat (numbersBetween angle, angles[index+1], amountInQuarter).map (angle) -> angleToPoint(r, angle)
   points
 
 # here will be equal-edges triangle "included" into circle with radius r

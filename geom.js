@@ -89,7 +89,9 @@ generateCirclePoints = function(r, amountInQuarter) {
   for (index = _i = 0, _len = _ref.length; _i < _len; index = ++_i) {
     angle = _ref[index];
     points.push(angleToPoint(r, angle));
-    points = points.concat((numbersBetween(angle, angles[index + 1], amountInQuarter)).map(angleToPoint.bind(null, r)));
+    points = points.concat((numbersBetween(angle, angles[index + 1], amountInQuarter)).map(function(angle) {
+      return angleToPoint(r, angle);
+    }));
   }
   return points;
 };
