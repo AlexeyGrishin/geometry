@@ -40,7 +40,6 @@ $(function() {
     }
   };
   animation = initAnimation(drawStep, transition.length, onStep);
-  console.log("before resize");
   return $(window).resize(function() {
     initCanvas();
     return animation.draw();
@@ -179,6 +178,5 @@ initCanvas = function() {
   el.attr("width", size);
   el.attr("height", size);
   initialize(el.width(), el.height());
-  console.log("getCtx is " + $("canvas")[0].getContext);
   return $("canvas")[0].getContext("2d");
 };
